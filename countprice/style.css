@@ -96,6 +96,7 @@ body.showCart .container{
 .cartTab .btn{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    height: 50px;
 }
 .cartTab button{
     background-color: #E8BC0E;
