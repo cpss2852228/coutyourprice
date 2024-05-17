@@ -1,5 +1,6 @@
 let listProductHTML = document.querySelector('.listProduct');
 let listCartHTML = document.querySelector('.listCart');
+let listCartprice = document.querySelector('.totalprice');
 let iconCart = document.querySelector('.icon-cart');
 let iconCartSpan = document.querySelector('.icon-cart span');
 let body = document.querySelector('body');
@@ -65,6 +66,7 @@ const addCartToMemory = () => {
 const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
+    let totalPrice = 0;
     if(cart.length > 0){
         cart.forEach(item => {
             totalQuantity = totalQuantity +  item.quantity;
@@ -75,6 +77,7 @@ const addCartToHTML = () => {
             let positionProduct = products.findIndex((value) => value.id == item.product_id);
             let info = products[positionProduct];
             listCartHTML.appendChild(newItem);
+            totalPrice = totalPrice + info.price * item.quantity;
             newItem.innerHTML = `
             <div class="image">
                     <img src="${info.image}">
@@ -91,6 +94,7 @@ const addCartToHTML = () => {
             `;
         })
     }
+    listCartprice.innerText = "總額為：" + totalPrice;
     iconCartSpan.innerText = totalQuantity;
 }
 

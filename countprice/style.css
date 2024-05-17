@@ -107,6 +107,13 @@ body.showCart .container{
 .cartTab .close{
     background-color: #eee;
 }
+.totalprice {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
 .listCart .item img{
     width: 100%;
 }
