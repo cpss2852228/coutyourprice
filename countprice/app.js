@@ -58,7 +58,8 @@ const addToCart = (product_id) => {
         cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
     }
     addCartToHTML();
-    addCartToMemory();
+    //儲存在瀏覽器，放在 localStorage 的資料會永久保存，直到被使用者清除
+    //addCartToMemory();
 }
 const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
