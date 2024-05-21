@@ -40,7 +40,7 @@ header{
 }
 .listProduct .item img{
     width: 90%;
-    filter: drop-shadow(0 50px 20px #0009);
+    filter: drop-shadow(0 0px 20px #0009);
 }
 .listProduct{
     display: grid;
@@ -98,6 +98,14 @@ body.showCart .container{
     grid-template-columns: repeat(2, 1fr);
     height: 50px;
 }
+.cartTab .btn-discount{  
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 5px;
+    height: 30px;
+    padding: 10px;
+}
 .cartTab button{
     background-color: #E8BC0E;
     border: none;
@@ -107,6 +115,27 @@ body.showCart .container{
 }
 .cartTab .close{
     background-color: #eee;
+}
+.cartTab .orig{
+    background-color: #f56868;
+}
+.cartTab .dc95{
+    background-color: #f59c68;
+}
+.cartTab .dc7{
+    background-color: #f5f264;
+}
+.cartTab .dc65{
+    background-color: #74c57f;
+}
+.cartTab .dc62{
+    background-color: #75a1f3;
+}
+.cartTab .dc57{
+    background-color: #5985fc;
+}
+.cartTab .dc52{
+    background-color: #cba1fa;
 }
 .totalprice {
     font-family: Poppins;
