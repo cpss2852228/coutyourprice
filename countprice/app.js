@@ -67,7 +67,7 @@ var clickHandler = function(discount){
                 newProduct.innerHTML = 
                 `<img src="${product.image}" alt="">
                 <h2>${product.name}</h2>
-                <div class="price">$${product.price}</div>
+                <div class="price"><span>NT$</span>${product.price}</div>
                 <button class="addCart">加入購物車</button>`;
                 listProductHTML.appendChild(newProduct);
             });
@@ -122,7 +122,7 @@ const addCartToHTML = () => {
                     <img src="${info.image}">
                 </div>
                 <div class="name">
-                ${info.name}
+                ${info.name} $${info.price}
                 </div>
                 <div class="totalPrice">$${info.price * item.quantity}</div>
                 <div class="quantity">

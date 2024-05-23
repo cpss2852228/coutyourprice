@@ -1,6 +1,7 @@
 body{
     margin: 0;
     font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+    font-weight: bold;
 }
 .container{
     width: 900px;
@@ -59,12 +60,16 @@ header{
 }
 .listProduct .item .price{
     letter-spacing: 7px;
+    font-size: x-large;
+    font-weight:bold;
+}
+.listProduct .item .price span{
     font-size: medium;
     font-weight:bold;
 }
 .listProduct .item button{
     background-color: #7796fa93;
-    color: #547ef1;
+    color: #731011;
     border: none;
     padding: 5px 10px;
     margin-top: 10px;
@@ -72,7 +77,7 @@ header{
     position: relative;
     min-width: 160px;
     background: transparent;
-    font-size: 1rem;
+    font-size: medium;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -84,15 +89,18 @@ header{
     position: absolute;
     top: 0;
     left: 0;
-    width: 40px;
+    width: 20%;
     height: 100%;
     border-radius: 50px;
-    background: #7796fa93;
+    background: #dfbb25;
     transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .listProduct .item .addCart:hover:before {
-  background: #7796fa93;
+  background: #dfba25ab;
   width: 100%;
+}
+.listProduct .item .addCart:active {
+    transform: scale(0.9);
 }
 
 /* cart */
@@ -105,7 +113,7 @@ header{
     right: -400px;
     bottom: 0;
     display: grid;
-    grid-template-rows: 70px 1fr 70px;
+    grid-template-rows: 70px 1fr 50px 30px;
     transition: .5s;
 }
 body.showCart .cartTab{
@@ -139,44 +147,40 @@ body.showCart .container{
     font-weight:bold;
     color: black;
     cursor: pointer;
+    font-size: medium;
+}
+.cartTab button:active {
+    transform: scale(0.9);
 }
 .cartTab .close{
     background-color: #eee;
 }
 .cartTab .orig{
     background-color: #f56868;
-    font-size: medium;
     
 }
 .cartTab .dc95{
     background-color: #f59c68;
-    font-size: medium;
 }
 .cartTab .dc7{
     background-color: #f5f264;
-    font-size: medium;
 }
 .cartTab .dc65{
     background-color: #74c57f;
-    font-size: medium;
 }
 .cartTab .dc62{
     background-color: #75a1f3;
-    font-size: medium;
 }
 .cartTab .dc57{
     background-color: #5985fc;
-    font-size: medium;
 }
 .cartTab .dc52{
     background-color: #cba1fa;
-    font-size: medium;
 }
 .totalprice {
     font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
     font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
+    font-size: x-large;
     text-align: center;
 }
 .listCart .item img{
