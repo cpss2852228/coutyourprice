@@ -16,8 +16,8 @@ let dc52 = document.querySelector('.dc52 ');
 let products = [];
 let cart = [];
 var discount=1;
-var copyPrice=0;
-let sharecart = "";
+//var copyPrice=0;
+var sharecart = "";
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
@@ -25,13 +25,18 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 shareToLine.addEventListener('click', () => {
+    sharecart=sharecart+"總額為：" + Math.ceil(copyPrice*discount);
+    console.log("分享到line的文字：",sharecart);
     shareOnLine(sharecart);
+
 })
 var shareOnLine =function (text) {
     var lineUrl = "https://social-plugins.line.me/lineit/share?url=&text=";
     var encodedText = encodeURIComponent(text);
     var finalUrl = lineUrl + encodedText;
+    console.log(finalUrl);
     window.open(finalUrl, "_blank", "width=600,height=400");
+    sharecart="";
 }
 orig.addEventListener('click', () => {
     discount=1;
@@ -62,8 +67,9 @@ dc52.addEventListener('click', () => {
     clickHandler(discount);
 })
 var clickHandler = function(discount){
-    listCartprice.innerText = "總額為：" + Math.ceil(copyPrice*discount);
-    console.log(copyPrice,"*",discount,"=",copyPrice*discount);
+    //listCartprice.innerText = "總額為：" + Math.ceil(copyPrice*discount);
+    //console.log(copyPrice,"*",discount,"=",copyPrice*discount);
+    addCartToHTML();
   };
     const addDataToHTML = () => {
     // remove datas default from HTML
@@ -127,7 +133,7 @@ const addCartToHTML = () => {
             let positionProduct = products.findIndex((value) => value.id == item.product_id);
             let info = products[positionProduct];
             listCartHTML.appendChild(newItem);
-            totalPrice = totalPrice + info.price * item.quantity;
+            totalPrice = totalPrice + Math.ceil(info.price*discount)*item.quantity;
             newItem.innerHTML = `
             <div class="image">
                     <img src="${info.image}">
@@ -142,14 +148,12 @@ const addCartToHTML = () => {
                     <span class="plus">></span>
                 </div>
             `;
-            sharecart=sharecart+info.name+"\n數量："+item.quantity+"\n價格："+info.price+"\n\n";
+            sharecart=sharecart+info.name+"\n價格："+info.price+"\n數量："+item.quantity+"\n\n";
             
         })
     }
     copyPrice=totalPrice;
-    sharecart=sharecart+"總額為：" + Math.ceil(totalPrice*discount);
-    console.log("分享到line的文字：",sharecart);
-    listCartprice.innerText = "總額為：" + Math.ceil(totalPrice*discount);
+    listCartprice.innerText = "總額為：" + totalPrice;
     iconCartSpan.innerText = totalQuantity;
 }
 
@@ -171,12 +175,14 @@ const changeQuantityCart = (product_id, type) => {
         switch (type) {
             case 'plus':
                 cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                sharecart="";
                 break;
         
             default:
                 let changeQuantity = cart[positionItemInCart].quantity - 1;
                 if (changeQuantity > 0) {
                     cart[positionItemInCart].quantity = changeQuantity;
+                    sharecart="";
                 }else{
                     cart.splice(positionItemInCart, 1);
                 }
