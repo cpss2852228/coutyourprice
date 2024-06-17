@@ -24,11 +24,14 @@ iconCart.addEventListener('click', () => {
 closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
+document.addEventListener('click',function(){
+    body.classList.remove('showCart');
+},true);
+
 shareToLine.addEventListener('click', () => {
     sharecart=sharecart+"總額為：" + Math.ceil(copyPrice*discount);
     console.log("分享到line的文字：",sharecart);
     shareOnLine(sharecart);
-
 })
 var shareOnLine =function (text) {
     var lineUrl = "https://social-plugins.line.me/lineit/share?url=&text=";
@@ -149,7 +152,6 @@ const addCartToHTML = () => {
                 </div>
             `;
             sharecart=sharecart+info.name+"\n價格："+info.price+"\n數量："+item.quantity+"\n\n";
-            
         })
     }
     copyPrice=totalPrice;
