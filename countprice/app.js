@@ -24,9 +24,6 @@ iconCart.addEventListener('click', () => {
 closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
-document.addEventListener('click',function(){
-    body.classList.remove('showCart');
-},true);
 
 shareToLine.addEventListener('click', () => {
     sharecart=sharecart+"總額為：" + Math.ceil(copyPrice*discount);
